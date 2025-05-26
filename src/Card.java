@@ -35,7 +35,7 @@ public class Card {
         return this.IMAGE;
     }
 
-    public void printBook() 
+    public void printCard() 
     {
         UI.printf("\nName: %s\nAuthor: %f", name, money);
     }

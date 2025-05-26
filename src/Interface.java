@@ -24,6 +24,12 @@ public class Interface {
         Card jigglypuff = new Card(3, "Jigglypuff", 11.66, "Jigglypuff");
         Card munna = new Card(4, "Munna", 1.97, "Munna");
 
+        set.put(1, exeggcute);
+        set.put(2, mew);
+        set.put(3, jigglypuff);
+        set.put(4, munna);
+
+        
         this.currCardId = 4;
     }
 
@@ -42,6 +48,18 @@ public class Interface {
     public void findCard() {
         String findName = UI.askString("Enter Name of Card: ");
         double findMoney = UI.askDouble("Enter Monetary Vaue of Card: ");
-        String findImage = UI.askString("Enter the file name of your image: ");   
+        Collection<Card> collection = set.values();
+        for (Card card : collection) {
+            if(findName.equalsIgnoreCase(card.getName()) || findMoney == card.getMoney()) {
+                card.printCard();
+            }
+        }
+    }
+
+    public void printAll() {
+        Collection<Card> collection = set.values();
+        for (Card card : collection) {
+            card.printCard();
+        }
     }
 }
