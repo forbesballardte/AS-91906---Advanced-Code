@@ -41,14 +41,16 @@ public class Interface {
         double cardMoney = UI.askDouble("Enter Monetary Vaue of Card: ");
         String cardImage = UI.askString("Enter the file name of your image (Enter N to use default image) : ");
         if (cardImage.equalsIgnoreCase("N")) {
-            cardImage = "card_default";
+            cardImage = "images/card_default.jpg";
+        } else  {
+            cardImage = "images/" + cardImage + ".jpg";
         }
         currCardId += 1;
         Card newCard = new Card(currCardId, cardName, cardMoney, cardImage);
         set.put(currCardId, newCard);
         UI.println("Card added");
         newCard.printCard();
-        UI.drawImage(cardImage, 100, 100, IMAGE_WIDTH, IMAGE_HEIGHT);
+        UI.drawImage("C:/Users/mihif/OneDrive/Documents/VSCode/Pokemon/AS 91906 - Advanced Code/src/images/card_default.jpg", 100, 100, IMAGE_WIDTH, IMAGE_HEIGHT);
     }
 
     public void findCard() {
