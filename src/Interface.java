@@ -13,6 +13,8 @@ public class Interface {
     //instance variables
     private HashMap<Integer, Card> set;
     private int currCardId;
+    private int IMAGE_WIDTH = 188;
+    private int IMAGE_HEIGHT = 263;
 
     public Interface() {
         // initialise Hashmap
@@ -37,12 +39,16 @@ public class Interface {
         // create a new Card from inputted information
         String cardName = UI.askString("Enter Name of Card: ");
         double cardMoney = UI.askDouble("Enter Monetary Vaue of Card: ");
-        String cardImage = UI.askString("Enter the file name of your image: ");
+        String cardImage = UI.askString("Enter the file name of your image (Enter N to use default image) : ");
+        if (cardImage.equalsIgnoreCase("N")) {
+            cardImage = "card_default";
+        }
         currCardId += 1;
         Card newCard = new Card(currCardId, cardName, cardMoney, cardImage);
         set.put(currCardId, newCard);
         UI.println("Card added");
         newCard.printCard();
+        UI.drawImage(cardImage, 100, 100, IMAGE_WIDTH, IMAGE_HEIGHT);
     }
 
     public void findCard() {

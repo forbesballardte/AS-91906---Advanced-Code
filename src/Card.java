@@ -37,7 +37,7 @@ public class Card {
 
     public void printCard() 
     {
-        UI.printf("\nName: %s\nAuthor: %f", name, money);
+        UI.printf("\nName: %s\nMonatery Value: $%4.2f\n", name, money);
     }
 }
 
