@@ -14,6 +14,9 @@ public class Card {
     private String name;
     private double money;
     private String IMAGE;
+    private int IMAGE_WIDTH = 333;
+    private int IMAGE_HEIGHT = 467;
+    private String FILE_PATH = "C:/Users/mihif/OneDrive/Documents/VSCode/Pokemon/AS 91906 - Advanced Code/src/images/";
 
     // Constructor
     public Card(int id, String name, double money, String IMAGE) {
@@ -38,6 +41,10 @@ public class Card {
     public void printCard() 
     {
         UI.printf("\nName: %s\nMonatery Value: $%4.2f\n", name, money);
+    }
+
+    public void displayCard() {
+        UI.drawImage(FILE_PATH + IMAGE + ".jpg", 75, 75, IMAGE_WIDTH, IMAGE_HEIGHT);
     }
 }
 

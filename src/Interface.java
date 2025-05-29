@@ -13,8 +13,6 @@ public class Interface {
     //instance variables
     private HashMap<Integer, Card> set;
     private int currCardId;
-    private int IMAGE_WIDTH = 188;
-    private int IMAGE_HEIGHT = 263;
 
     public Interface() {
         // initialise Hashmap
@@ -41,16 +39,14 @@ public class Interface {
         double cardMoney = UI.askDouble("Enter Monetary Vaue of Card: ");
         String cardImage = UI.askString("Enter the file name of your image (Enter N to use default image) : ");
         if (cardImage.equalsIgnoreCase("N")) {
-            cardImage = "images/card_default.jpg";
-        } else  {
-            cardImage = "images/" + cardImage + ".jpg";
+            cardImage = "card_default";
         }
         currCardId += 1;
         Card newCard = new Card(currCardId, cardName, cardMoney, cardImage);
         set.put(currCardId, newCard);
         UI.println("Card added");
         newCard.printCard();
-        UI.drawImage("C:/Users/mihif/OneDrive/Documents/VSCode/Pokemon/AS 91906 - Advanced Code/src/images/card_default.jpg", 100, 100, IMAGE_WIDTH, IMAGE_HEIGHT);
+        newCard.displayCard();
     }
 
     public void findCard() {
@@ -60,6 +56,7 @@ public class Interface {
         for (Card card : collection) {
             if(findName.equalsIgnoreCase(card.getName()) || findMoney == card.getMoney()) {
                 card.printCard();
+                card.displayCard();
             }
         }
     }
